@@ -27,6 +27,30 @@ npm install
 cp .env.example .env
 ```
 
+## Credential setup (required)
+
+1. Create a Spotify app in the Spotify Developer Dashboard.
+2. Add this redirect URI in Spotify app settings:
+   - `http://127.0.0.1:3000/auth/spotify/callback`
+3. Create a Google OAuth client (Web application) in Google Cloud.
+4. Enable YouTube Data API v3 for that Google project.
+5. Add this redirect URI in Google OAuth client settings:
+   - `http://127.0.0.1:3000/auth/youtube/callback`
+6. Copy credentials into `.env`:
+   - `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`
+   - `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`
+
+Notes:
+- If you download a Google `client_secret_*.json` file, keep it only as a local backup. This app does not read that JSON directly.
+- The app reads credentials from `.env` only.
+- Keep redirect URIs exactly the same in provider dashboards and `.env`.
+
+## Security notes
+
+- Never commit `.env`, `.tokens.json`, `.sync-state.json`, private keys, or client secret JSON files.
+- Use `.env.example` as the template for new developers.
+- If a secret is exposed, rotate it in Spotify/Google dashboards immediately.
+
 ## Run
 
 ```bash
