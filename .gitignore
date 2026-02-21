@@ -13,3 +13,10 @@ pnpm-debug.log*
 client_secret*.json
 *.pem
 *.key
+
+# Local export artifacts
+exports/
+spotify-liked-songs-*.json
+spotify-liked-songs-*.csv
+spotify-playlist-*.json
+spotify-playlist-*.csv

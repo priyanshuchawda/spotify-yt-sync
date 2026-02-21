@@ -7,7 +7,11 @@
   "type": "commonjs",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "node --watch src/server.js"
+    "dev": "node --watch src/server.js",
+    "export:spotify-liked": "node src/export-liked-songs.js",
+    "export:spotify-liked:csv": "node src/export-liked-songs.js --format csv",
+    "export:spotify-playlist": "node src/export-playlist-tracks.js",
+    "export:spotify-playlist:csv": "node src/export-playlist-tracks.js --format csv"
   },
   "engines": {
     "node": ">=18"

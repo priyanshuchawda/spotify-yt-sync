@@ -68,6 +68,52 @@ Check:
 curl http://127.0.0.1:3000/status
 ```
 
+## Export Spotify liked songs to file
+
+After Spotify is connected, you can export liked songs with metadata (title, artists, album, IDs, links, timestamps, etc.) to a local file.
+
+Default JSON export:
+
+```bash
+npm run export:spotify-liked
+```
+
+CSV export:
+
+```bash
+npm run export:spotify-liked:csv
+```
+
+Custom output path and limit:
+
+```bash
+node src/export-liked-songs.js --format json --out exports/liked-songs.json --max 500
+```
+
+## Export a Spotify playlist to file
+
+Export a specific Spotify playlist (by name or id) to a separate JSON/CSV file.
+
+Example for your Hindi playlist:
+
+```bash
+npm run export:spotify-playlist -- --playlist-name "Hindi" --out exports/hindi-playlist.json
+```
+
+List your playlists first (name + id):
+
+```bash
+npm run export:spotify-playlist -- --list-playlists
+```
+
+By playlist id:
+
+```bash
+npm run export:spotify-playlist -- --playlist-id <SPOTIFY_PLAYLIST_ID> --out exports/hindi-playlist.json
+```
+
+Note: if playlist export says `insufficient scope`, reconnect Spotify once at `/auth/spotify` so token includes playlist read scopes.
+
 ## Recommended commands
 
 ### 1) Dry run first (safe)
